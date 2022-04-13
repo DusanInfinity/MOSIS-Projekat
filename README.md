@@ -1,9 +1,9 @@
-# Projekat **MOSIS**
+## Projekat **MOSIS**
 
-# Naizv tima - **DSoft**
+## Naziv tima - **DSoft**
 
 
-## Clanovi tima:
+### Clanovi tima:
 - Dušan Antić *17004*
 - Stefan Dobrosavljević *17073*
 
