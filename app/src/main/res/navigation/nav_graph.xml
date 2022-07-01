@@ -3,26 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/HomeScreenFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="elfak.mosis.dsoftapartments.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/HomeScreenFragment"
+        android:name="elfak.mosis.dsoftapartments.HomeScreenFragment"
+        android:label="@string/home_screen_fragment_label"
+        tools:layout="@layout/home_screen_fragment">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_HomeScreenFragment_to_LogInFragment"
+            app:destination="@id/LogInFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="elfak.mosis.dsoftapartments.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/LogInFragment"
+        android:name="elfak.mosis.dsoftapartments.LoginFragment"
+        android:label="@string/log_in_fragment_label"
+        tools:layout="@layout/login_fragment">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_LogInFragment_to_HomeScreenFragment"
+            app:destination="@id/HomeScreenFragment" />
+        <action
+            android:id="@+id/action_LogInFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment" />
+        <action
+            android:id="@+id/action_LogInFragment_to_MapFragment"
+            app:destination="@id/MapFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/RegisterFragment"
+        android:name="elfak.mosis.dsoftapartments.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+    </fragment>
+
+    <fragment
+        android:id="@+id/MapFragment"
+        android:name="elfak.mosis.dsoftapartments.MapFragment"
+        android:label="Map"
+        tools:layout="@layout/fragment_map">
+    </fragment>
+
+
 </navigation>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "615025972822",
+    "project_id": "dsoftapartments",
+    "storage_bucket": "dsoftapartments.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615025972822:android:3ba8932b265165f88a4df7",
+        "android_client_info": {
+          "package_name": "elfak.mosis.dsoftapartments"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615025972822-joe8lspk9hk2fopu6m50tfu4834hv53g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAcUMl-QFE1CoPwMbOo6b_0lVEjOGj3wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615025972822-joe8lspk9hk2fopu6m50tfu4834hv53g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
