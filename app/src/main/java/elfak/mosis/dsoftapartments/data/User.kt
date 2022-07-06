@@ -1,6 +1,15 @@
 package elfak.mosis.dsoftapartments.data
 
-data class User(var uid : String? = null, var name : String? = null, var email : String? = null, var phoneNumber: String? = null, var description: String? = null) {
+import android.graphics.Bitmap
+
+data class User(
+    var uid: String = "",
+    var name: String = "",
+    var email: String = "",
+    var phoneNumber: String = "",
+    var description: String = "",
+    var imageBitmap: Bitmap? = null
+) {
     override fun toString(): String {
         return "$uid, $email"
     }

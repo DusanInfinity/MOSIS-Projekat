@@ -10,16 +10,18 @@
         android:name="elfak.mosis.dsoftapartments.HomeScreenFragment"
         android:label="@string/home_screen_fragment_label"
         tools:layout="@layout/home_screen_fragment">
-
         <action
             android:id="@+id/action_HomeScreenFragment_to_LogInFragment"
             app:destination="@id/LogInFragment" />
+        <action
+            android:id="@+id/action_HomeScreenFragment_to_MapFragment"
+            app:destination="@id/MapFragment" />
     </fragment>
     <fragment
         android:id="@+id/LogInFragment"
         android:name="elfak.mosis.dsoftapartments.ui.login.LoginFragment"
         android:label="@string/log_in_fragment_label"
-        tools:layout="@layout/login_fragment">
+        tools:layout="@layout/fragment_login">
 
         <action
             android:id="@+id/action_LogInFragment_to_HomeScreenFragment"
@@ -33,9 +35,12 @@
     </fragment>
     <fragment
         android:id="@+id/RegisterFragment"
-        android:name="elfak.mosis.dsoftapartments.RegisterFragment"
+        android:name="elfak.mosis.dsoftapartments.ui.registration.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_RegisterFragment_to_MapFragment"
+            app:destination="@id/MapFragment" />
     </fragment>
 
     <fragment
@@ -43,6 +48,9 @@
         android:name="elfak.mosis.dsoftapartments.MapFragment"
         android:label="Map"
         tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_MapFragment_to_LogInFragment"
+            app:destination="@id/LogInFragment" />
     </fragment>
 
 

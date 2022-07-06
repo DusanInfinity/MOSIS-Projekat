@@ -10,6 +10,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -24,7 +26,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import elfak.mosis.dsoftapartments.R
 import elfak.mosis.dsoftapartments.data.User
-import elfak.mosis.dsoftapartments.databinding.LoginFragmentBinding
+import elfak.mosis.dsoftapartments.databinding.FragmentLoginBinding
 import elfak.mosis.dsoftapartments.model.UserViewModel
 
 
@@ -36,12 +38,21 @@ class LoginFragment : Fragment() {
     lateinit var database: DatabaseReference
     private val userViewModel : UserViewModel by activityViewModels()
 
-    private var _binding: LoginFragmentBinding? = null
+    private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+
+
+
+    // Ovo sluzi da kad si na login fragmentu kad kliknes back dugme
+    // da te ne vrati na bilo koji drugi fragment nego da izadje iz aplikacije
+    private val callback = object: OnBackPressedCallback(true){
+        override fun handleOnBackPressed() {
+            requireActivity().finish()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 //        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 
@@ -50,7 +61,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = LoginFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -137,38 +148,19 @@ class LoginFragment : Fragment() {
         super.onResume()
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        // vezano za back dugme, dodaje se callback, a kad stane fragment treba da se obrise
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
+    }
+
     override fun onStop() {
+        callback.remove()
         super.onStop()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
-
-
-//    private fun performLogin() {
-//        val email = "asd"
-//        val password = "asd"
-//        auth.signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener(requireActivity()) { task ->
-//                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
-//                    val user = auth.currentUser
-//                    if (user != null) {
-//                        database = Firebase.database.getReference("Users")
-//                        database.child(user.uid).get().addOnCompleteListener {
-//                            val result = it.result.getValue(User::class.java)
-//                            userViewModel.currentUser = result
-//                            // tek da ode u mapFragment kada su podaci pribavljeni
-//                            findNavController().navigate(R.id.action_LogInFragment_to_MapFragment)
-//                        }
-//                    }
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Log.w("firebase", "signIn:failure", task.exception)
-//                }
-//            }
-//            .addOnFailureListener {
-//                Log.d("firebase", "Failure")
-//            }
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
