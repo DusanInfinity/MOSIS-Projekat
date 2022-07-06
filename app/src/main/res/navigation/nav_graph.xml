@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/LogInFragment"
-        android:name="elfak.mosis.dsoftapartments.LoginFragment"
+        android:name="elfak.mosis.dsoftapartments.ui.login.LoginFragment"
         android:label="@string/log_in_fragment_label"
         tools:layout="@layout/login_fragment">
 
